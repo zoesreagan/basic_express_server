@@ -12,8 +12,15 @@ app.get('/fruits', (req, res) => {
 
 //SHOW route --- show all the info about one partiuclar fruit
 app.get('/fruits/:id', (req, res) => {
-  const index = req.params.id
-  res.send(fruits[index]);
+  // const index = req.params.id
+  // res.send(fruits[index]);
+
+  //you "render" templates where you previusly just "send"ed data
+  //you can pass in the data you want to display in your template as the second parameter
+  //your data will ***ALWAYS** be an object
+  res.render('show.ejs', {
+    fruit: fruits[req.params.id]
+  })
 });
 
 app.listen(3000, () => {

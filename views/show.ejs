@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Fruits show page</h1>
+
+    <!-- lets make the template show the data  -->
+    <!-- the data available to you here is the object you passed as the second parameter to res.render -->
+
+    The <%= fruit.name %> is <%= fruit.color %>.
+
+    <!-- note: the <%= %> tag is for AN EXPRESSION.  -->
+    <!-- <% %> tag can have javascript inside -->
+    <% if(fruit.readyToEat === true) { %>
+      The fruit is ready to eat!
+      <% } else { %>
+        The fruit is NOT ready to eat.
+    <%  } %>
+
+
+
+  </body>
+</html>
