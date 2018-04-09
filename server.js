@@ -7,8 +7,9 @@ const fruits = require('./models/fruits.js')
 //route (URL you can go to/address)
 //INDEX route-- this will list all the routes
 app.get('/fruits', (req, res) => {
-  res.send(fruits);
-})
+  res.render('index.ejs', {fruits: fruits})
+});
+
 
 //SHOW route --- show all the info about one partiuclar fruit
 app.get('/fruits/:id', (req, res) => {
