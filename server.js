@@ -1,7 +1,8 @@
-const express = require ('express')
+const express = require ('express') //syntax for module (no . or /)
 const app = express();
-
-const fruits = ['apple', 'banana', 'pear']
+//our data
+//note the syntax to put in file, you need relative path--must start w/ "./"
+const fruits = require('./models/fruits.js')
 
 //route (URL you can go to/address)
 //INDEX route-- this will list all the routes
