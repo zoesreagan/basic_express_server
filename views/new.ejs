@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Add a fruit</title>
   </head>
   <body>
@@ -10,14 +11,13 @@
 method is the HTTP method -->
 
     <h1>Add a new fruit!</h1>
+
     <form action="/fruits" method="POST" /> <br>
-    NAME:<input type="text" name="name" /> <br>
-    COLOR:<input type="text" name="color" /> <br>
+    NAME:<input type="text" name="name" />
+    COLOR:<input type="text" name="color" />
     READY TO EAT?:<input type="checkbox" name="readyToEat">
         <input type="submit" name="" value="Create Fruit" />
     </form>
-
-
 
   </body>
 </html>
