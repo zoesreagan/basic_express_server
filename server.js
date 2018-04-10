@@ -44,6 +44,13 @@ app.get('/fruits/new', (req, res) => {
   })
 });
 
+//PUT route// to put edit page up
+app.get('/fruits/:index/edit', (req, res) => {
+  res.render('edit.ejs', {
+    fruit: fruits[req.params.index],
+    index: req.params.index
+  })
+})
 
 //SHOW route --- show all the info about one partiuclar fruit
 app.get('/fruits/:id', (req, res) => {
@@ -77,12 +84,26 @@ app.post('/fruits', (req, res) => {
 
 });
 
+//DELETE route
 //delete using the index of data in model
 app.delete('/fruits/:id', (req, res) => {
   fruits.splice(req.params.id, 1);
   res.redirect('/fruits')
 })
 
+//PUT route
+app.put('/fruits/:id', (req, res) => {
+  console.log(req.body);
+  const theFruit = {
+    name: req.body.name,
+    color: req.body.color,
+    readyToEat: req.body.readyToEat == 'on' ? true : false
+  }
+  fruits[req.params.id] = theFruit;
+
+  res.send("got it");
+  res.redirect('/fruits');
+})
 
 app.listen(3000, () => {
   console.log("server is listening on Port 3000");
