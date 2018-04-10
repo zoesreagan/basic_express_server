@@ -7,7 +7,18 @@ const fruits = require('./models/fruits.js')
 //route (URL you can go to/address)
 //INDEX route-- this will list all the routes
 app.get('/fruits', (req, res) => {
-  res.render('index.ejs', {fruits: fruits})
+  res.render('index.ejs', {
+    fruits: fruits //<--the data
+  })
+});
+
+//NEW route ---
+//get/fruits/NEW route
+//new template (EJS) --
+app.get('/fruits/new', (req, res) => {
+  res.render('new.ejs', {
+    fruit: fruits[req.params.id]
+  })
 });
 
 
@@ -23,6 +34,16 @@ app.get('/fruits/:id', (req, res) => {
     fruit: fruits[req.params.id]
   })
 });
+
+
+//POST route
+//post/fruits
+//no id needed, because this is a new fruit
+app.post('/fruits', (req, res) => {
+  res.send("you hit the post route!")
+});
+
+
 
 app.listen(3000, () => {
   console.log("server is listening on Port 3000");
