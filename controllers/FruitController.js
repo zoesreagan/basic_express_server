@@ -7,7 +7,7 @@ const Fruits = require('../models/fruits')
 
 //route (URL you can go to/address)
 //INDEX route-- this will list all the routes
-router.get('/Fruits', (req, res) => {
+router.get('/', (req, res) => {
   res.render('index.ejs', {
     fruits: Fruits //<--the data
   })
@@ -16,14 +16,14 @@ router.get('/Fruits', (req, res) => {
 //NEW route ---
 //get/fruits/NEW route
 //new template (EJS) --
-router.get('/fruits/new', (req, res) => {
+router.get('/new', (req, res) => {
   res.render('new.ejs', {
     fruit: Fruits[req.params.id]
   })
 });
 
 //PUT route// to put edit page up
-router.get('/fruits/:index/edit', (req, res) => {
+router.get('/:index/edit', (req, res) => {
   res.render('edit.ejs', {
     fruit: Fruits[req.params.index],
     index: req.params.index
@@ -31,7 +31,7 @@ router.get('/fruits/:index/edit', (req, res) => {
 })
 
 //SHOW route --- show all the info about one partiuclar fruit
-router.get('/fruits/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   // const index = req.params.id
   // res.send(fruits[index]);
 
@@ -47,7 +47,7 @@ router.get('/fruits/:id', (req, res) => {
 //POST route
 //post/fruits
 //no id needed, because this is a new fruit
-router.post('/fruits', (req, res) => {
+router.post('/', (req, res) => {
   console.log(req.body);
 //add a new object to our fruits array
 //if req.body.readyToEat is on
@@ -57,20 +57,20 @@ router.post('/fruits', (req, res) => {
       readyToEat: req.body.readyToEat == 'on' ? true : false
   }
 
-  fruits.push(newFruit);
+  Fruits.push(newFruit);
   res.redirect('/fruits')
 
 });
 
 //DELETE route
 //delete using the index of data in model
-router.delete('/fruits/:id', (req, res) => {
-  fruits.splice(req.params.id, 1);
+router.delete('/:id', (req, res) => {
+  Fruits.splice(req.params.id, 1);
   res.redirect('/fruits')
 })
 
 //PUT route
-router.put('/fruits/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   console.log(req.body);
   const theFruit = {
     name: req.body.name,
