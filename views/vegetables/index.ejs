@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+
+    <h1>Vegetable Index</h1>
+    <p> <a href="/veggies/new">Add a vegetable!</a>
+
+    <!-- lets make the template show the data  -->
+    <!-- the data available to you here is the object you passed as the second parameter to res.render -->
+    <ul>
+      <% for (let i = 0; i < veggies.length; i++) { %>
+        <li>
+          <a href= "/veggies/<%= i %>">
+            <%= veggies[i].name %>
+          </a>
+        </li>
+        <form action="/veggies/<%= i %>?_method=DELETE" method="POST">
+        <input type="submit" name="delete" value="delete"> </form>
+        <a href="/veggies/<%= i %>/edit">Edit Vegetable</a>
+      <% } %>
+    </ul>
+
+
+
+<!-- create a template for your INDEX
+render it at the correct root
+it should list all the Fruits -->
+
+
+  </body>
+</html>

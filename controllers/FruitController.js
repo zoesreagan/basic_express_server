@@ -8,7 +8,7 @@ const Fruits = require('../models/fruits')
 //route (URL you can go to/address)
 //INDEX route-- this will list all the routes
 router.get('/', (req, res) => {
-  res.render('index.ejs', {
+  res.render('fruits/index.ejs', {
     fruits: Fruits //<--the data
   })
 });
@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
 //get/fruits/NEW route
 //new template (EJS) --
 router.get('/new', (req, res) => {
-  res.render('new.ejs', {
+  res.render('fruits/new.ejs', {
     fruit: Fruits[req.params.id]
   })
 });
 
 //PUT route// to put edit page up
 router.get('/:index/edit', (req, res) => {
-  res.render('edit.ejs', {
+  res.render('fruits/edit.ejs', {
     fruit: Fruits[req.params.index],
     index: req.params.index
   })
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
   //you "render" templates where you previusly just "send"ed data
   //you can pass in the data you want to display in your template as the second parameter
   //your data will ***ALWAYS** be an object
-  res.render('show.ejs', {
+  res.render('fruits/show.ejs', {
     fruit: Fruits[req.params.id]
   })
 });

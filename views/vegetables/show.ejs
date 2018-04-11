@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>Vegetable show page</h1>
+
+    <!-- lets make the template show the data  -->
+    <!-- the data available to you here is the object you passed as the second parameter to res.render -->
+
+    The <%= vegetable.name %> is <%= vegetable.color %>.
+
+    <!-- note: the <%= %> tag is for AN EXPRESSION.  -->
+
+    <!-- <% %> tag can have javascript inside -->
+
+    <% if(vegetable.readyToEat === true) { %>
+      The vegetable is ready to eat!
+      <% } else { %>
+        The vegetable is NOT ready to eat.
+    <%  } %>
+
+<!-- create a template for your INDEX
+render it at the correct root
+it should list all the Fruits -->
+  <a href= "/veggies/">Back to list</a>
+
+  </body>
+</html>
